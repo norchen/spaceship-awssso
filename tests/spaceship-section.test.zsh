@@ -27,7 +27,7 @@ oneTimeSetUp() {
   export TERM="xterm-256color"
 
   source "$SPACESHIP_ROOT/spaceship.zsh"
-  source "$(dirname $CWD)/spaceship-section.plugin.zsh"
+  source "$(dirname $CWD)/spaceship-awssso.plugin.zsh"
 
   SPACESHIP_PROMPT_ASYNC=false
   SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
@@ -59,9 +59,9 @@ test_mocked_version() {
   # Prepare the environment
   touch $SHUNIT_TMPDIR/test.foo
 
-  local prefix="%{%B%}$SPACESHIP_FOOBAR_PREFIX%{%b%}"
-  local content="%{%B%F{$SPACESHIP_FOOBAR_COLOR}%}$SPACESHIP_FOOBAR_SYMBOL$mocked_version%{%b%f%}"
-  local suffix="%{%B%}$SPACESHIP_FOOBAR_SUFFIX%{%b%}"
+  local prefix="%{%B%}$SPACESHIP_AWSSSO_PREFIX%{%b%}"
+  local content="%{%B%F{$SPACESHIP_AWSSSO_COLOR}%}$SPACESHIP_AWSSSO_SYMBOL$mocked_version%{%b%f%}"
+  local suffix="%{%B%}$SPACESHIP_AWSSSO_SUFFIX%{%b%}"
 
   local expected="$prefix$content$suffix"
   local actual="$(spaceship::testkit::render_prompt)"
